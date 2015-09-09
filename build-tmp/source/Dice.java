@@ -14,14 +14,17 @@ import java.io.IOException;
 
 public class Dice extends PApplet {
 
+Die one; 
 int num;
 public void setup()
 {
+	size(300,300);
 	noLoop();
+    one = new Die(50,50);
 }
 public void draw()
 {
-	Dice one = new Dice(50,50);
+	
 	one.roll();
 	one.show();
 }
@@ -32,6 +35,7 @@ public void mousePressed()
 class Die //models one single dice cube
 {
 	//variable declarations here
+	int myX, myY;
 	Die(int x, int y) //constructor
 	{
 		myX=x;
@@ -39,8 +43,11 @@ class Die //models one single dice cube
 	}
 	public void roll()
 	{
-		
-		num = (int)(Math.random*6)+1;
+		num = (int)(Math.random()*6)+1;
+		if (num == 1){
+			fill(0);
+			ellipse(myX, myY,5,5);
+		}
 	}
 	public void show()
 	{
