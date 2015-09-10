@@ -16,6 +16,7 @@ public class Dice extends PApplet {
 
 Die one; 
 int num;
+
 public void setup()
 {
 	size(300,300);
@@ -24,9 +25,9 @@ public void setup()
 }
 public void draw()
 {
-	
-	one.roll();
 	one.show();
+	one.roll();
+	
 }
 public void mousePressed()
 {
@@ -42,18 +43,20 @@ class Die //models one single dice cube
 		myY=y;
 	}
 	public void roll()
-	{
-		num = (int)(Math.random()*6)+1;
+	{	
+		int rectSize = 50;
+		num = 1;
 		if (num == 1){
 			fill(0);
-			ellipse(myX, myY,5,5);
+			ellipse(myX+rectSize/2,myY+rectSize/2,5,5);
 		}
 	}
 	public void show()
 	{
+		int rectSize = 50;
 		noStroke();
 		fill(255);
-		rect(myX,myY,50,50);
+		rect(myX,myY,rectSize,rectSize);
 
 	}
 }
