@@ -1,8 +1,10 @@
 Die one; 
 int num;
-
+int total= 0;
+int average = 0;
 void setup()
 {
+	background(0);
 	size(700,455);
 	noLoop();
     
@@ -14,12 +16,21 @@ void draw()
 			Die one = new Die(x,y);
 			one.show();
 			one.roll();
+			total = total + num; 
+			average = average + num;
 		}
 	}
-
+	fill(255);
+	textSize(20);
+	text("TOTAL SUM OF ROLLS:", 460,100);
+	text(total, 545,125);
+	text("AVERAGE SUM OF ROLL:", 455,180);
+	text(average, 545,205);
+	average = 0;
 }
 void mousePressed()
 {
+	background(0);
 	redraw();
 }
 class Die //models one single dice cube
@@ -34,45 +45,46 @@ class Die //models one single dice cube
 	void roll()
 	{	
 		int rectSize = 50;
+		int elsize = 8;
 		num = (int)(Math.random()*6)+1;
 		if (num == 1){
 			fill(0);
-			ellipse(myX+rectSize/2,myY+rectSize/2,5,5);
+			ellipse(myX+rectSize/2,myY+rectSize/2,elsize, elsize);
 		}
 		else if (num == 2){
 			fill(0);
-			ellipse(myX+rectSize/4,myY+rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,5,5);
+			ellipse(myX+rectSize/4,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,elsize, elsize);
 		}
 		else if (num == 3){
 			fill(0);
-			ellipse(myX+rectSize/2,myY+rectSize/4,5,5);
-			ellipse(myX+rectSize/2,myY+rectSize/2,5,5);
-			ellipse(myX+rectSize/2,myY+3*rectSize/4,5,5);
+			ellipse(myX+rectSize/2,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+rectSize/2,myY+rectSize/2,elsize, elsize);
+			ellipse(myX+rectSize/2,myY+3*rectSize/4,elsize, elsize);
 		}
 		else if (num == 4){
 			fill(0);
-			ellipse(myX+rectSize/4,myY+rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,5,5);
-			ellipse(myX+rectSize/4,myY+3*rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+rectSize/4,5,5);
+			ellipse(myX+rectSize/4,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,elsize, elsize);
+			ellipse(myX+rectSize/4,myY+3*rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+rectSize/4,elsize, elsize);
 		}
 		else if (num == 5){
 			fill(0);
-			ellipse(myX+rectSize/4,myY+rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,5,5);
-			ellipse(myX+rectSize/4,myY+3*rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+rectSize/4,5,5);
-			ellipse(myX+rectSize/2,myY+rectSize/2,5,5);
+			ellipse(myX+rectSize/4,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,elsize, elsize);
+			ellipse(myX+rectSize/4,myY+3*rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+rectSize/2,myY+rectSize/2,elsize, elsize);
 		}
 		else if (num == 6){
 			fill(0);
-			ellipse(myX+rectSize/4,myY+rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,5,5);
-			ellipse(myX+rectSize/4,myY+3*rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+rectSize/4,5,5);
-			ellipse(myX+rectSize/4,myY+2*rectSize/4,5,5);
-			ellipse(myX+3*rectSize/4,myY+2*rectSize/4,5,5);
+			ellipse(myX+rectSize/4,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+3*rectSize/4,elsize, elsize);
+			ellipse(myX+rectSize/4,myY+3*rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+rectSize/4,elsize, elsize);
+			ellipse(myX+rectSize/4,myY+2*rectSize/4,elsize, elsize);
+			ellipse(myX+3*rectSize/4,myY+2*rectSize/4,elsize, elsize);
 		}
 	}
 	void show()
