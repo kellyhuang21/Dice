@@ -21,11 +21,14 @@ void draw()
 		}
 	}
 	fill(255);
+	textSize(25);
+	text("8x8 DICE ROLL", 485,45);
+	fill(255);
 	textSize(20);
-	text("TOTAL SUM OF ROLLS:", 460,100);
-	text(total, 545,125);
-	text("AVERAGE SUM OF ROLL:", 455,180);
-	text(average, 545,205);
+	text("TOTAL SUM OF ROLLS:", 460,190);
+	text(total, 545,215);
+	text("AVERAGE SUM OF ROLL:", 455,270);
+	text(average, 545,295);
 	average = 0;
 }
 void mousePressed()
